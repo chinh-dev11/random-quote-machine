@@ -9,11 +9,12 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import QuoteBodyComponent from '../components/QuoteBodyComponent';
 
+import './QuoteComponent.css';
+
 import { QUOTES, BG_COLORS } from '../const';
 
 const getRandomQuote = () => {
   const idx = Math.floor(Math.random() * QUOTES.length);
-  // console.log(idx);
   return{
     text: QUOTES[idx].text,
     author: QUOTES[idx].author
@@ -111,7 +112,7 @@ class QuoteComponent extends React.Component {
     const tweetUrl = `https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${this.state.quote.text}`;
     return(
       <div>
-        <Container fluid id="quote-box" className={containerBgColor}>
+        <Container fluid id="quote-box" className={`quote-box ${containerBgColor}`}>
           <Col sm={9} md={7} lg={5} xl={4} className="m-auto">
             <Card bg="transparent" border="0" className="p-4">
               <QuoteBodyComponent quote={this.state.quote} fade={this.state.fade} />
